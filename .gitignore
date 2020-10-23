@@ -1,0 +1,11 @@
+__pycache__/*
+.ipynb_checkpoints/
+*.ipynb
+.DS_Store
+resources/__pycache__/*
+d/*
+CACHE/*
+data/d/*
+book_rec_envs/*
+data/similarity_matrix.npy
+data/admin-book-rec-app-2-73ea95bae98e.json

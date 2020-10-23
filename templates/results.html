@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=EB+Garamond&family=Libre+Franklin:wght@100&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+
+  <title>Book Recommender</title>
+</head>
+
+<body>
+
+  <br>
+  <h2>Your selected titles:</h2>
+  <br>
+  {% for x in selected_titles %}
+  <p style="font-size:20px; margin-bottom:0px">{{ x }}</p>
+  {% endfor%}
+
+  {% if not_titles|length > 0 %}
+  <br>
+  <p style="font-size:15px; margin-bottom:0px"> Note that the following entries could not be found in the database: </p>
+  {% for x in not_titles %}
+  <p style="font-size:15px; margin-bottom:0px">{{ x }}</p>
+  {% endfor%}
+  {% endif %}
+  <div class="container">
+    <br>
+    <h2>Your recommendations:</h2>
+    <br>
+    <div class="row row-cols-2" style:"text-align: left; padding: 50% 50%;" align="center">
+      {% for x in results %}
+      <div class="col">
+        <img src={{ x[3] }} alt="" />
+        <p style="font-size:20px; margin-bottom:0px">{{ x[0] }} by {{ x[2] }}</p>
+        <p style="font-size:20px"><a target=”_blank” href={{ x[4] }}>More info</a></p>
+        <br>
+      </div>
+      {% endfor%}
+    </div>
+  </div>
+
+  <p style="color: #EC8600;"><b>If you're not happy with the recommendations, click "Shuffle" for more! <br> Alternatively, try entering a different set of books by clicking "Try Again"
+    </b></p>
+
+  <p id="loading" style="display: none; font-size: 0.85rem; color: #FF3D3D; font-weight: 900;">Okay, just getting different recommendations for you now!</p>
+
+  <form action="{{ url_for('shuffle') }}" method="POST">
+    <fieldset>
+      <input type="hidden" id="itemIDs" name="itemIDs" value="{{ itemIDs }}">
+      <input type="hidden" id="no_recs" name="no_recs" value="{{ no_recs }}">
+      <input type="hidden" id="selected_titles" name="selected_titles" value="{{ selected_titles }}">
+      <input type="hidden" id="not_titles" name="not_titles" value="{{ not_titles }}">
+      <input type="hidden" id="recommended_itemIDs" name="recommended_itemIDs" value="{{ recommended_itemIDs }}">
+
+      <input type="submit" value='Shuffle' class="btn btn-lg btn-secondary submit-button" onclick="$('#loading').show();">
+      <!-- <input type="button" class="btn btn-lg btn-secondary submit-button" value="Shuffle" onclick="window.location.reload()"> -->
+      <a href="/"> <input type="button" class="btn btn-lg btn-secondary submit-button" value="Try again"> </a>
+
+    </fieldset>
+
+  </form>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="static/js/iframeResizer.contentWindow.min.js">
+  </script>
+
+
+</body>
+
+</html>
