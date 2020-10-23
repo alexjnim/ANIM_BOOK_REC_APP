@@ -13,7 +13,8 @@ The following skills and methods were used:
 - Familiarity with recommender systems
 - Python, SQL and Flask
 - HTML, CSS, JavaScript and Jinja
-- Google BigQuery (SQL database)
+- Google BigQuery
+- Heroku
 
 # Data
 The raw data for this project has been included in the data folder, however, the source location can be found [here](https://github.com/zygmuntz/goodbooks-10k).
