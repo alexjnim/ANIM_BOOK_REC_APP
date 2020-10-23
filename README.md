@@ -11,7 +11,7 @@ Here contains code for a book recommender application built in Flask. This will 
 # Prerequisites 
 The following skills and methods were used:
 - Familiarity with recommender systems
-- Python and Flask
+- Python, SQL and Flask
 - HTML, CSS, JavaScript and Jinja
 - Google BigQuery (SQL database)
 
