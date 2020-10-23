@@ -11,7 +11,7 @@ Here contains code for a book recommender application built in Flask. This will 
 # Prerequisites 
 The following skills and methods were used:
 - Familiarity with recommender systems
-- Python, Flask and Surprise library
+- Python and Flask
 - HTML, CSS, JavaScript and Jinja
 - Google BigQuery (SQL database)
 
@@ -31,7 +31,6 @@ The following files were written for the purpose of deploying the API on Heroku'
 
 # Helpful Resources
 - [Recommender Systems blog post](https://alexnim.com/coding-projects-book-recommenders.html)
-- [Surprise Documentation](http://surpriselib.com/)
 - [Pandas GBQ Documentation](https://pandas-gbq.readthedocs.io/en/latest/)
 - [Jinja Documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/#expressions)
 - [Getting started with Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
